@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private api: ApiService) {  }
+  
+  watch(){
+    this.api.getUsersList().subscribe((res)=>{
+      console.log(res);
+    });
+  }
 
 }
